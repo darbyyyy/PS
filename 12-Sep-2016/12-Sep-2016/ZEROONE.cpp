@@ -7,6 +7,7 @@ int main() {
 	int i, j, N, temp, pari, idx, len;
 	scanf("%s", input);scanf("%d", &N);
 	len = strlen(input);
+	printf("len = %d\n", len);
 	pari = 0;
 	iinput[0] = 0;
 	for (int idx = 1; idx < len; idx++) {
