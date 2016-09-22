@@ -4,6 +4,10 @@
 #define _MAX_STAR_CNT 100000
 
 int _P[_MAX_STAR_CNT], _Q[_MAX_STAR_CNT];	// sorted sequence based on gradients between P,Q and stars
+
+
+
+
 double _P_grad[_MAX_STAR_CNT], _Q_grad[_MAX_STAR_CNT];	// Gradients between P,Q and stars
 bool exist[_MAX_STAR_CNT];
 void quicksort(int *sortary, double*gradary, int start, int end);
@@ -20,10 +24,14 @@ int main() {
 		scanf("%d%lf%lf", &_N, &_p, &_q);
 		for (int i = 0; i < _N; i++) {
 			scanf("%lf%lf", &star[i][0], &star[i][1]);		//read inputs
-			if (star[i][1] == _p)	_P_grad[i] = 0;
-			else	_P_grad[i] = star[i][1] / (star[i][0] - _p);	//calculate gradients
-			if (star[i][1] == _q)	_Q_grad[i] == 0;
-			else	_Q_grad[i] = star[i][1] / (star[i][0] - _q);
+			if (star[i][1] == _p)
+				_P_grad[i] = 0;
+			else
+				_P_grad[i] = star[i][1] / (star[i][0] - _p);	//calculate gradients
+			if (star[i][1] == _q)
+				_Q_grad[i] == 0;
+			else
+				_Q_grad[i] = star[i][1] / (star[i][0] - _q);
 			exist[i] = false;								//exist array init;
 		}
 		for (int i = 0; i < _N; i++) {_P[i] = i; _Q[i] = i;}
@@ -31,7 +39,8 @@ int main() {
 		quicksort(_Q, _Q_grad, 0, _N - 1);
 		
 		for (int i = 0; i < _N; i++) {
-			if (_P[i] == _Q[i])		sum += cnt;
+			if (_P[i] == _Q[i])
+				sum += cnt;
 			else {
 				if (exist[_P[i]]) {
 					sum += cnt - 1;
